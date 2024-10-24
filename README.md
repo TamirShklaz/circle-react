@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Movie Search App
+
+This is a Next.js application that allows users to search for movies using the
+[The Movie Database (TMDb) API](https://www.themoviedb.org/documentation/api).
+This project was done for a front end React interview with Circle Medical.
+
+## Features
+
+- Search for movies by title.
+- Infinite scrolling to load more movies.
+- Responsive design using Tailwind CSS.
+
+## Live Demo
+
+Check out the live application at
+[https://circle-react-ten.vercel.app/](https://circle-react-ten.vercel.app/).
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js and pnpm installed on your machine.
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/TamirShklaz/circle-react.git
+   cd circle-react
+   ```
+
+2. Install the dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+### Running the Development Server
+
+Start the development server on [http://localhost:3001](http://localhost:3001):
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Building for Production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To create an optimized production build:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+```
 
-## Learn More
+### Starting the Production Server
 
-To learn more about Next.js, take a look at the following resources:
+After building, you can start the production server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Linting
 
-## Deploy on Vercel
+To run ESLint:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Dependencies
+
+- **Next.js**:
+  [Framework for server-rendered React applications](https://nextjs.org/).
+- **React**:
+  [JavaScript library for building user interfaces](https://reactjs.org/).
+- **Tailwind CSS**: [Utility-first CSS framework](https://tailwindcss.com/).
+- **SWR**: [React Hooks library for data fetching](https://swr.vercel.app/).
+- **Zustand**:
+  [Small, fast, and scalable state management solution](https://zustand-demo.pmnd.rs/).
+- **ShadCN**:
+  [Component library for building accessible web applications](https://shadcn.dev/).
+
+## Dev Dependencies
+
+- **TypeScript**: Typed superset of JavaScript.
+- **ESLint**: Pluggable linting utility for JavaScript and JSX.
+- **Prettier**: Code formatter.
+- **Tailwind CSS**: Utility-first CSS framework.
+
+## Folder Structure
+
+Here's a quick overview of the folder structure for the relevant parts of the
+project:
+
+```
+src/
+├── app/
+│   ├── movies/
+│   │   ├── _components/
+│   │   │   ├── movie-list.tsx
+│   │   │   ├── movie-list-item.tsx
+│   │   │   └── search-bar.tsx
+│   │   └── page.tsx
+│   └── layout.tsx
+├── lib/
+│   ├── hooks/
+│   │   └── filter-store.ts
+│   ├── types/
+│   │   └── movie-response.types.ts
+│   └── utils/
+│       └── fetcher.ts
+```
+
+### Description
+
+- **app/movies/**: Contains components and pages related to the movie search
+  functionality.
+
+  - **\_components/**: Houses reusable components for the movie search feature.
+    - `movie-list.tsx`: Component for displaying a list of movies with infinite
+      scrolling.
+    - `movie-list-item.tsx`: Component for displaying individual movie details.
+    - `search-bar.tsx`: Component for the search input field.
+  - `page.tsx`: Main page component for the movie search feature.
+
+- **lib/hooks/**: Contains custom hooks used throughout the application.
+
+  - `filter-store.ts`: Zustand store for managing search filter state.
+
+- **lib/types/**: Contains TypeScript type definitions.
+
+  - `movie-response.types.ts`: Type definitions for movie API responses.
+
+- **lib/utils/**: Contains utility functions.
+  - `fetcher.ts`: Utility function for data fetching using `fetch`.
