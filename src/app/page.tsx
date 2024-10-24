@@ -1,6 +1,7 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Github, Globe } from "lucide-react"
+import { Clapperboard, Github, Globe } from "lucide-react"
+import Link from "next/link"
 
 export default function Component() {
   return (
@@ -17,7 +18,6 @@ export default function Component() {
           <Card>
             <CardHeader>
               <CardTitle>Welcome to My Interview Landing Page</CardTitle>
-              <CardDescription>Thank you for considering my application</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <p>
@@ -25,8 +25,14 @@ export default function Component() {
                 reference
                 for some important links related to my application.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col gap-4">
                 <Button asChild>
+                  <Link href="/movies"
+                        rel="noopener noreferrer">
+                    <Clapperboard className="mr-2 h-4 w-4" /> View Movie App
+                  </Link>
+                </Button>
+                <Button asChild variant={"outline"}>
                   <a href="https://github.com/TamirShklaz/circle-react" target="_blank"
                      rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" /> View Source Code
@@ -37,6 +43,7 @@ export default function Component() {
                     <Globe className="mr-2 h-4 w-4" /> Visit My Website
                   </a>
                 </Button>
+           
               </div>
             </CardContent>
           </Card>

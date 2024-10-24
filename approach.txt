@@ -1,2 +1,76 @@
+Tools:
+NextJS React
+TypeScript
+Tailwind
+ShadCN
+useSWR
+
+Movie search engine
+
+API: https://developer.themoviedb.org/docs/authentication-application
+Key: a99cc60fc2b34dbb18cb806b8a88ed14
+
+Context
+- Start of the internet
+- People can't search for movies right now.
+
+V1
+UI
+- Search bar at the top
+- See list of movies with image on the left, and title and description on the right
+- On first load only search box, cta is to search.
+
+User stories:
+- User can see a list of movies
+- A user can use a search box to search for movies
 
 
+V2:
+User stories:
+- The movie grid is response
+- Instant search results
+- Infinite scrolling
+
+
+Endpoints
+https://developer.themoviedb.org/reference/search-movie - search for movies
+
+My approach
+- Play around with api, in my IDE,
+- Create types for the api response
+- Search box first with a CTA
+- Implement a list in react
+- Implement a search box (zustand for state management)
+
+
+Infinte scrolling
+Approach
+- Understanding the API, next_page? how am I going to get the pages?
+- useSWRINfite for api request infinite scrolling
+- intersection observer at the bottom of the list and when that is in view fetch the next page
+- No more pages, don't fetch
+
+
+- Kiosk at movie theatre.
+- Can't reload the browser
+- DB updates every 24 hours
+- Avoid API call for movies that are often searched.
+- If the search has already been done on the day don't do another API call.
+
+Constraint cost, every API request is $ expensive.
+- Limit number of API requests
+
+Potential ways to do
+1. Explore caching on the useSWR library
+2. Implement a custom solution
+    - On search
+        - Check if the search has been done today if so return that search (store on device in local store or in indexDB)
+        - If not do the API call and store the result in the cache
+        - Every 24 hours reset
+
+
+- Existing kiosk
+- We can only send them URLs, hits our servers
+
+Potential ways to do
+1. Setup our own API that hits the movie API
