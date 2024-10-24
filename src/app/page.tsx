@@ -21,13 +21,13 @@ export default function Component() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p>
-                I'm excited about the opportunity to interview with Circle Medical. This page serves as a quick
+                I&apos;m excited about the opportunity to interview with Circle Medical. This page serves as a quick
                 reference
                 for some important links related to my application.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild>
-                  <a href="https://github.com/yourusername/circle-medical-interview" target="_blank"
+                  <a href="https://github.com/TamirShklaz/circle-react" target="_blank"
                      rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" /> View Source Code
                   </a>
